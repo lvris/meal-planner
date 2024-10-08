@@ -1,0 +1,3 @@
+<template>
+  Meal Planner
+</template>
