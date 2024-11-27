@@ -7,15 +7,21 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BottomBar: typeof import('./src/components/Layouts/BottomBar.vue')['default']
+    NaiveWrapper: typeof import('./src/components/NaiveUI/NaiveWrapper.vue')['default']
+    NavBar: typeof import('./src/components/Layouts/NavBar.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDialogProvider: typeof import('naive-ui')['NDialogProvider']
+    NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
     NLoadingBarProvider: typeof import('naive-ui')['NLoadingBarProvider']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NModalProvider: typeof import('naive-ui')['NModalProvider']
     NSpace: typeof import('naive-ui')['NSpace']
+    Provider: typeof import('./src/components/NaiveUI/Provider.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UIWrapper: typeof import('./src/components/NaiveUI/UIWrapper.vue')['default']
   }
 }

@@ -1,22 +1,11 @@
 <template>
-  <NConfigProvider :theme="appStore.isDark ? darkTheme : undefined">
-    <NMessageProvider>
-      <NDialogProvider>
-        <NModalProvider>
-          <NLoadingBarProvider>
-            <RouterView />
-          </NLoadingBarProvider>
-        </NModalProvider>
-      </NDialogProvider>
-    </NMessageProvider>
-  </NConfigProvider>
+  <NaiveWrapper>
+    <RouterView />
+  </NaiveWrapper>
 </template>
 
 <script setup lang="ts">
-import { darkTheme } from 'naive-ui';
-import { useAppStore } from '@/stores/appStore';
-
-const appStore = useAppStore()
+import NaiveWrapper from './components/NaiveUI/NaiveWrapper.vue';
 </script>
 
 <style>
