@@ -1,16 +1,13 @@
 <template>
-  <div p-20>Hello</div>
-
-
-  <NMenu fixed bottom="0" p-8 mb-8 justify-evenly @update:value="handleUpdateValue" mode="horizontal"
-    :options="menuOptions" />
+  <NMenu fixed bottom="0" p-3 mb-3 b-t-solid justify-evenly @update:value="handleUpdateValue" mode="horizontal"
+    :options="menuOptions" :iconSize="24" />
 
   <NDrawer v-model:show="showDrawer" :width="270" :placement="placement">
     <NDrawerContent>
       <template #header>
         <div flex justify-between>
-          <div class="i-solar-user-linear" />
-          <NButton size="large" quaternary circle @click="appStore.toggleDark">
+          <div h-auto font-size-6 class="i-solar-user-linear" />
+          <NButton font-size-6 quaternary circle @click="appStore.toggleDark">
             <div :class="appStore.isDark ? 'i-solar-moon-linear' : 'i-solar-sun-linear'" />
           </NButton>
         </div>
@@ -62,11 +59,3 @@ const menuOptions: MenuOption[] = [
   }
 ]
 </script>
-
-<!-- <style lang="css" scoped>
-.n-menu-item-content {
-  border-width: 2rem;
-}
-
-.n-menu-item-content--selected {}
-</style> -->

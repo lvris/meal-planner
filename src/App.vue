@@ -12,7 +12,7 @@ import NaiveWrapper from './components/NaiveUI/NaiveWrapper.vue';
 
 <style>
 html {
-  font-size: 4px;
+  font-size: 16px;
 }
 #app {
   width: 100%;
