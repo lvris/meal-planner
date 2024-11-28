@@ -17,5 +17,9 @@ export const useUserStore = defineStore('user', {
       return state.userData?.mealTimes || null
     }
   },
-  actions: {}
+  actions: {
+    updateData(data: User) {
+      this.userData = data
+    }
+  }
 })

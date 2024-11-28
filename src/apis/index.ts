@@ -1,4 +1,5 @@
 import { useUserStore } from '@/stores/userStore'
+import { message } from '@/utils/naiveDiscreteAPI'
 import axios from 'axios'
 
 const request = axios.create({
@@ -31,7 +32,7 @@ request.interceptors.response.use(
     return response
   },
   (error) => {
-    console.log(`Error: ${error}`)
+    message.error(`Error: ${error}`)
     return Promise.reject('Network Error')
   }
 )

@@ -16,9 +16,7 @@ export interface User {
   }
 }
 
-export interface ICreateUser {
+export interface IAccount {
   username: string
-  password?: string
-  name: string
-  role: 'USER' | 'ADMIN'
+  password: string
 }

@@ -31,9 +31,13 @@
 </template>
 
 <script setup lang="ts">
+import { createUser, loginUser } from '@/apis/user.api';
 import HeaderBar from '@/components/Layouts/HeaderBar.vue';
+import type { User } from '@/interfaces/user.interface';
+import { useUserStore } from '@/stores/userStore';
 import { useMessage, type FormInst } from 'naive-ui';
 import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const message = useMessage()
 const formRef = ref<FormInst | null>(null)
@@ -54,13 +58,29 @@ const rules = {
   }
 }
 
+const route = useRoute()
+const router = useRouter()
+const redirect = route.query.redirect as string | undefined
+const doRedirect = (data: User) => {
+  useUserStore().updateData(data)
+
+  message.success('Success')
+
+  if (redirect) {
+    router.push(redirect)
+  } else {
+    router.push('/')
+  }
+}
+
 function handleLoginClick(e: MouseEvent) {
   e.preventDefault()
   formRef.value?.validate((errors) => {
     if (!errors) {
-      message.success('Success')
+      loginUser(formValue.value).then((res) => {
+        doRedirect(res)
+      })
     } else {
-      console.log(errors)
       message.error('Error')
     }
   })
@@ -68,7 +88,15 @@ function handleLoginClick(e: MouseEvent) {
 
 function handleSignUpClick(e: MouseEvent) {
   e.preventDefault()
-
+  formRef.value?.validate((errors) => {
+    if (!errors) {
+      createUser(formValue.value).then((res) => {
+        doRedirect(res)
+      })
+    } else {
+      message.error('Error')
+    }
+  })
 }
 
 </script>
