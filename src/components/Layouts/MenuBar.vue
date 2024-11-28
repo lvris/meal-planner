@@ -59,3 +59,8 @@ const menuOptions: MenuOption[] = [
   }
 ]
 </script>
+<style lang="css" scoped>
+.n-menu {
+  border-color: var(--n-divider-color);
+}
+</style>
