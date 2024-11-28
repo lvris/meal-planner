@@ -15,3 +15,10 @@ export interface User {
     dinner: string
   }
 }
+
+export interface ICreateUser {
+  username: string
+  password?: string
+  name: string
+  role: 'USER' | 'ADMIN'
+}
