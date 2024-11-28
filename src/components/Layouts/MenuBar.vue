@@ -1,0 +1,72 @@
+<template>
+  <div p-20>Hello</div>
+
+
+  <NMenu fixed bottom="0" p-8 mb-8 justify-evenly @update:value="handleUpdateValue" mode="horizontal"
+    :options="menuOptions" />
+
+  <NDrawer v-model:show="showDrawer" :width="270" :placement="placement">
+    <NDrawerContent>
+      <template #header>
+        <div flex justify-between>
+          <div class="i-solar-user-linear" />
+          <NButton size="large" quaternary circle @click="appStore.toggleDark">
+            <div :class="appStore.isDark ? 'i-solar-moon-linear' : 'i-solar-sun-linear'" />
+          </NButton>
+        </div>
+      </template>
+    </NDrawerContent>
+  </NDrawer>
+</template>
+
+<script lang="ts" setup>
+import { useAppStore } from '@/stores/appStore';
+import { type DrawerPlacement, type MenuOption } from 'naive-ui'
+import { h, ref } from 'vue';
+import { RouterLink } from 'vue-router';
+
+const appStore = useAppStore();
+
+const placement = ref<DrawerPlacement>('left')
+const showDrawer = ref(false)
+function handleUpdateValue(v: string) {
+  if (v === "menu")
+    showDrawer.value = true
+}
+
+const menuOptions: MenuOption[] = [
+  {
+    key: 'home',
+    icon: () => h(RouterLink, {
+      to: "/",
+      class: "i-solar-home-smile-angle-linear",
+    })
+  },
+  {
+    key: 'plan',
+    icon: () => h(RouterLink, {
+      to: "/plan",
+      class: "i-solar-notebook-linear",
+    })
+  },
+  {
+    key: 'recipe',
+    icon: () => h(RouterLink, {
+      to: "/recipe",
+      class: "i-solar-chef-hat-linear",
+    })
+  },
+  {
+    key: 'menu',
+    icon: () => h('div', { class: "i-solar-hamburger-menu-linear" })
+  }
+]
+</script>
+
+<!-- <style lang="css" scoped>
+.n-menu-item-content {
+  border-width: 2rem;
+}
+
+.n-menu-item-content--selected {}
+</style> -->

@@ -1,10 +1,12 @@
 <template>
   <NaiveWrapper>
     <RouterView />
+    <MenuBar />
   </NaiveWrapper>
 </template>
 
 <script setup lang="ts">
+import MenuBar from './components/Layouts/MenuBar.vue';
 import NaiveWrapper from './components/NaiveUI/NaiveWrapper.vue';
 </script>
 

@@ -2,7 +2,7 @@ import type { GlobalThemeOverrides } from 'naive-ui'
 
 export const baseThemeOverrides: GlobalThemeOverrides = {
   common: {
-    borderRadius: '8px'
+    borderRadius: '2rem'
   }
 }
 
