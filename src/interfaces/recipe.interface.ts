@@ -73,3 +73,23 @@ export interface RecipeQuery {
 }
 
 export interface ISearchRecipe {}
+
+export const iRecipeToRecipe = (iRecipe: IRecipe): Recipe => {
+  return {
+    id: iRecipe.id,
+    name: iRecipe.name,
+    ingredients: iRecipe.ingredients.reduce<Record<string, number>>((acc, { name, amount }) => {
+      acc[name] = amount
+      return acc
+    }, {}),
+    imgUrl: iRecipe.imgUrl,
+    userId: iRecipe.userId,
+    adminId: iRecipe.adminId,
+    description: iRecipe.description,
+    steps: iRecipe.steps.reduce<RecipeStep>((acc, { no, step }) => {
+      acc[no] = step
+      return acc
+    }, {}),
+    tags: iRecipe.tags
+  }
+}

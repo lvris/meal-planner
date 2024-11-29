@@ -26,17 +26,18 @@
 </template>
 
 <script setup lang="ts">
+import { selectRecipeByID } from '@/apis/recipe.api';
 import RecipeButtons from '@/components/Recipe/RecipeButtons.vue';
 import RecipeSteps from '@/components/Recipe/RecipeSteps.vue';
 import RecipeTags from '@/components/Recipe/RecipeTags.vue';
 import type { Recipe } from '@/interfaces/recipe.interface';
-import { onMounted } from 'vue';
+import { onMounted, ref, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
 const id = Number(route.params.id)
 
-const data: Recipe = {
+const data: Ref<Recipe> = ref({
   "id": 5,
   "name": "Tomato Egg Stir-fry",
   "description": "A quick and easy Chinese-style stir-fry dish featuring tomatoes and eggs.",
@@ -59,9 +60,12 @@ const data: Recipe = {
     "healthy",
     "easy"
   ]
-}
+})
 
 onMounted(() => {
-  console.log(id)
+  selectRecipeByID(id)
+    .then(res => {
+      data.value = res
+    })
 })
 </script>

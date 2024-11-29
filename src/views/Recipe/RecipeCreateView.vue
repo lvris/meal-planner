@@ -38,8 +38,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { NForm, NFormItem, NInput, NButton } from 'naive-ui';
-import type { IRecipe, Recipe } from '@/interfaces/recipe.interface';
+import { NForm, NFormItem, NInput, NButton, useMessage } from 'naive-ui';
+import { iRecipeToRecipe, type IRecipe, type Recipe } from '@/interfaces/recipe.interface';
+import { createRecipe } from '@/apis/recipe.api';
 
 const recipe = ref<IRecipe>({
   id: 0,
@@ -69,7 +70,15 @@ const newIngredient = () => {
   return { name: '', quantity: 0 };
 }
 
+const message = useMessage();
 const submitForm = () => {
-  // TODO: Implement form submission logic
+  let recipeDTO = iRecipeToRecipe(recipe.value)
+  createRecipe(recipeDTO)
+    .then(res => {
+      message.success('Recipe created successfully');
+    })
+    .catch(err => {
+      message.error(err)
+    })
 };
 </script>
