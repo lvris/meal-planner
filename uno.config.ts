@@ -5,7 +5,7 @@ import presetIcons from '@unocss/preset-icons'
 import presetUno from '@unocss/preset-uno'
 import presetWebFonts from '@unocss/preset-web-fonts'
 import { createLocalFontProcessor } from '@unocss/preset-web-fonts/local'
-import { defineConfig } from 'unocss'
+import { defineConfig, transformerVariantGroup } from 'unocss'
 
 const iconDirectory = resolve(__dirname, 'icons')
 
@@ -43,5 +43,6 @@ export default defineConfig({
       },
       processors: createLocalFontProcessor()
     })
-  ]
+  ],
+  transformers: [transformerVariantGroup()]
 })

@@ -12,13 +12,14 @@
           </NButton>
         </div>
       </template>
+      <NMenu mode="vertical" :options="sideMenuOptions" @click="showDrawer = false" />
     </NDrawerContent>
   </NDrawer>
 </template>
 
 <script lang="ts" setup>
 import { useAppStore } from '@/stores/appStore';
-import { type DrawerPlacement, type MenuOption } from 'naive-ui'
+import { type MenuOption } from 'naive-ui'
 import { h, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -57,9 +58,62 @@ const menuOptions: MenuOption[] = [
     icon: () => h('div', { class: "i-solar-hamburger-menu-linear" })
   }
 ]
+
+const sideMenuOptions: MenuOption[] = [
+  {
+    key: 'home',
+    label: () => h(RouterLink, {
+      to: "/",
+    }, [
+      h('div', { class: "i-solar-home-smile-angle-linear" }),
+      'Dashboard'
+    ])
+  },
+  {
+    key: 'plan',
+    label: () => h(RouterLink, {
+      to: "/plan",
+    }, [
+      h('div', { class: "i-solar-notebook-linear" }),
+      'Plan'
+    ])
+  },
+  {
+    key: 'recipe',
+    label: () => h(RouterLink, {
+      to: "/recipe",
+    }, [
+      h('div', { class: "i-solar-chef-hat-linear" }),
+      'Recipe'
+    ])
+  },
+  {
+    key: 'divider',
+    type: 'divider',
+  },
+]
+
 </script>
-<style lang="css" scoped>
+<style lang="css">
 .n-menu {
   border-color: var(--n-divider-color);
+
+  .n-menu-item-content__icon:has(.router-link-active) {
+    color: var(--n-item-icon-color-active);
+  }
+}
+
+.n-drawer .n-drawer-content .n-drawer-body-content-wrapper {
+  padding: 0;
+}
+
+.n-drawer .n-drawer-body .n-menu .n-menu-item-content a {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+
+  div {
+    margin-right: 10px;
+  }
 }
 </style>

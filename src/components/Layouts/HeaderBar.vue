@@ -12,7 +12,7 @@
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
-defineProps({
+const props = defineProps({
   title: String,
   showArrow: Boolean
 })

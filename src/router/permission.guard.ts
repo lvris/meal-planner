@@ -1,7 +1,7 @@
 import { useUserStore } from '@/stores/userStore'
 import type { Router } from 'vue-router'
 
-const WHITE_LIST = ['/login', '/404', '/']
+const WHITE_LIST = ['/login', '/404', '/', '/recipe']
 
 export function createPermissionGuard(router: Router) {
   router.beforeEach(async (to) => {

@@ -1,5 +1,9 @@
 <template>
-  <div h-vh flex flex-col justify-center>
+  <NResult status="info" title="Login First" class="hidden lg:(flex h-vh items-center fixed right-20)">
+    Please Login First
+  </NResult>
+
+  <div flex="~ col" class="h-vh justify-center lg:(w-120)">
     <HeaderBar title="LOGIN"></HeaderBar>
     <div px-8>
       <NForm ref="formRef" :model="formValue" :rules="rules" size="large" :show-label=false>
