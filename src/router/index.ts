@@ -19,11 +19,21 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: () => import('@/views/Home/HomeView.vue')
+    },
+    {
+      path: '/plan',
+      name: 'plan',
+      component: () => import('@/views/Plan/PlanView.vue')
+    },
+    {
+      path: '/recipe',
+      name: 'recipe',
+      component: () => import('@/views/Recipe/RecipeView.vue')
     }
   ]
 })
 
 createMenuGuard(router)
-createPermissionGuard(router)
+// createPermissionGuard(router)
 
 export default router

@@ -20,9 +20,11 @@
         <NFormItem mt-4>
           <NButton m-auto w-30 type="tertiary" @click="handleSignUpClick">
             Sign Up
+            <div ml-2 font-size-5 class="i-solar-pen-new-square-linear" />
           </NButton>
           <NButton m-auto w-30 type="primary" @click="handleLoginClick">
             Login
+            <div ml-2 font-size-5 class="i-solar-login-3-linear" />
           </NButton>
         </NFormItem>
       </NForm>

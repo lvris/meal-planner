@@ -2,7 +2,7 @@
   <NMenu fixed bottom="0" p-3 mb-3 b-t-solid justify-evenly @update:value="handleUpdateValue" mode="horizontal"
     :options="menuOptions" :iconSize="24" />
 
-  <NDrawer v-model:show="showDrawer" :width="270" :placement="placement">
+  <NDrawer v-model:show="showDrawer" :width="270" placement="left">
     <NDrawerContent>
       <template #header>
         <div flex justify-between>
@@ -24,7 +24,6 @@ import { RouterLink } from 'vue-router';
 
 const appStore = useAppStore();
 
-const placement = ref<DrawerPlacement>('left')
 const showDrawer = ref(false)
 function handleUpdateValue(v: string) {
   if (v === "menu")
