@@ -9,7 +9,7 @@
         <RecipeTags :tags="recipe.tags" />
       </template>
       <template #footer>
-        <RecipeButtons :id="recipe.id" />
+        <RecipeButtons :id="recipe.id" show-link flex="~ row" gap-3 justify-end />
       </template>
       {{ recipe.description }}
     </NCard>

@@ -5,10 +5,15 @@
     <template #cover>
       <NImage :src="data.imgUrl" object-fit="cover" />
     </template>
-    {{ data.description }}
-    <template #footer>
-      <RecipeTags :tags="data.tags" />
-    </template>
+    <div flex="~ row">
+      <div>
+        <p>
+          {{ data.description }}
+        </p>
+        <RecipeTags :tags="data.tags" />
+      </div>
+      <RecipeButtons :id="data.id" flex="~ col" justify-center gap-3 />
+    </div>
   </NCard>
 
   <h2 ml-4>Ingredients</h2>
@@ -21,6 +26,7 @@
 </template>
 
 <script setup lang="ts">
+import RecipeButtons from '@/components/Recipe/RecipeButtons.vue';
 import RecipeSteps from '@/components/Recipe/RecipeSteps.vue';
 import RecipeTags from '@/components/Recipe/RecipeTags.vue';
 import type { Recipe } from '@/interfaces/recipe.interface';
