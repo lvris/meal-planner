@@ -8,8 +8,8 @@
       <NListItem class="w-30 text-align-center"> {{ day }}</NListItem>
       <NListItem v-for="meal in meals" :key="meal" class="h-30" @click="openDrawer(day, meal)">
         <!-- TODO Empty / Avatar of meal (Different click) -->
-        <div v-if="mealPlan[day]?.[meal]" class="meal-item">
-          {{ mealPlan[day][meal] }}
+        <div v-if="mealPlan[day]?.[meal]" class="text-align-center">
+          {{ 'id: ' + mealPlan[day][meal] }}
         </div>
       </NListItem>
     </NList>
