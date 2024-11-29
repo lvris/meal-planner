@@ -1,6 +1,6 @@
 <template>
-  <NMenu fixed bottom="0" p-3 mb-3 b-t-solid justify-evenly @update:value="handleUpdateValue" mode="horizontal"
-    :options="menuOptions" :iconSize="24" />
+  <NMenu p-3 mb-3 b-t-solid justify-evenly @update:value="handleUpdateValue" mode="horizontal" :options="menuOptions"
+    :iconSize="24" />
 
   <NDrawer v-model:show="showDrawer" :width="270" placement="left">
     <NDrawerContent>

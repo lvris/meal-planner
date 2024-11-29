@@ -17,7 +17,7 @@
   <NDivider />
 
   <h2 ml-4>Steps</h2>
-  <RecipeSteps :steps="data.steps" px-4 />
+  <RecipeSteps :steps="data.steps" px-4 pb-4 />
 </template>
 
 <script setup lang="ts">

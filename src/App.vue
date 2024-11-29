@@ -1,8 +1,12 @@
 <template>
   <NaiveWrapper>
-    <RouterView />
-    <div v-show="appStore.showMenu">
-      <MenuBar />
+    <div flex="~ col" h-vh w-vw>
+      <div flex-1 h-auto class="main-content">
+        <RouterView />
+      </div>
+      <div v-show="appStore.showMenu">
+        <MenuBar />
+      </div>
     </div>
   </NaiveWrapper>
 </template>
@@ -22,5 +26,9 @@ html {
 #app {
   width: 100%;
   height: 100%;
+}
+.main-content {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 </style>
