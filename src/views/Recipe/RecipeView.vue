@@ -1,5 +1,5 @@
 <template>
-  <HeaderBar title="RECIPE"></HeaderBar>
+  <HeaderBar title="Recipe"></HeaderBar>
   <NFlex gap="3" class="m-6">
     <NCard v-for="recipe in list" :key="recipe.id" :recipe="recipe" hoverable>
       <template #header>

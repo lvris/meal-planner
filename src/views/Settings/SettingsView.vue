@@ -1,7 +1,7 @@
 <template>
-  <HeaderBar title="Dashboard"></HeaderBar>
+  <HeaderBar title="Settings" show-arrow />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import HeaderBar from '@/components/Layouts/HeaderBar.vue';
 </script>

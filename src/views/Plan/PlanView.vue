@@ -1,5 +1,5 @@
 <template>
-  <HeaderBar title="PLAN">
+  <HeaderBar title="Plan">
     <NDatePicker type="week" class="px-3 my-auto" :default-value="new Date().getTime()" />
   </HeaderBar>
 
@@ -16,7 +16,7 @@
   </div>
 
   <NButtonGroup class="flex justify-center pt-5">
-    <NButton type="tertiary" size="large" @click="showDrawer = true">
+    <NButton type="tertiary" size="large" @click="router.push('/grocery')">
       Go Shopping
       <div ml-2 font-size-5 class="i-solar-shop-2-linear" />
     </NButton>
@@ -42,6 +42,9 @@
 import HeaderBar from '@/components/Layouts/HeaderBar.vue';
 import { Day, Meal, days, meals } from '@/interfaces/plan.interface';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const showDrawer = ref(false);
 

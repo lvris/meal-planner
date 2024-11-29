@@ -34,6 +34,26 @@ const router = createRouter({
       path: '/recipe/:id',
       name: 'recipe-detail',
       component: () => import('@/views/Recipe/RecipeDetailView.vue')
+    },
+    {
+      path: '/grocery',
+      name: 'grocery',
+      component: () => import('@/views/Grocery/GroceryView.vue')
+    },
+    {
+      path: '/statistic',
+      name: 'statistic',
+      component: () => import('@/views/Statistic/StatisticView.vue')
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: () => import('@/views/Settings/SettingsView.vue')
+    },
+    {
+      path: '/doc',
+      name: 'doc',
+      component: () => import('@/views/Doc/DocView.vue')
     }
   ]
 })

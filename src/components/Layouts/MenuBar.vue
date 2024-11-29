@@ -26,6 +26,7 @@ import { RouterLink } from 'vue-router';
 const appStore = useAppStore();
 
 const showDrawer = ref(false)
+
 function handleUpdateValue(v: string) {
   if (v === "menu")
     showDrawer.value = true
@@ -91,6 +92,42 @@ const sideMenuOptions: MenuOption[] = [
     key: 'divider',
     type: 'divider',
   },
+  {
+    key: 'grocery',
+    label: () => h(RouterLink, {
+      to: "/grocery",
+    }, [
+      h('div', { class: "i-solar-shop-2-linear" }),
+      'Grocery'
+    ])
+  },
+  {
+    key: 'statistic',
+    label: () => h(RouterLink, {
+      to: "/statistic",
+    }, [
+      h('div', { class: "i-solar-calculator-linear" }),
+      'Statistic'
+    ])
+  },
+  {
+    key: 'doc',
+    label: () => h(RouterLink, {
+      to: "/doc",
+    }, [
+      h('div', { class: "i-solar-document-text-linear" }),
+      'Documents'
+    ])
+  },
+  {
+    key: 'settings',
+    label: () => h(RouterLink, {
+      to: "/settings",
+    }, [
+      h('div', { class: "i-solar-settings-linear" }),
+      'Settings'
+    ])
+  },
 ]
 
 </script>
@@ -110,9 +147,10 @@ const sideMenuOptions: MenuOption[] = [
 .n-drawer .n-drawer-body .n-menu .n-menu-item-content a {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
 
   div {
+    font-size: 24px;
     margin-right: 10px;
   }
 }
