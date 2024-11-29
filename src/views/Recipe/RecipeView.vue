@@ -30,6 +30,7 @@
 
 <script setup lang="ts">
 import { selectRecipeAll } from '@/apis/recipe.api';
+import { recipeList } from '@/assets/recipe.mock';
 import RecipeButtons from '@/components/Recipe/RecipeButtons.vue';
 import RecipeFilter from '@/components/Recipe/RecipeFilter.vue';
 import RecipeTags from '@/components/Recipe/RecipeTags.vue';
@@ -39,7 +40,7 @@ import { handleError, onMounted, reactive, ref, type Ref } from 'vue';
 
 const filterStore = useFilterStore();
 
-const list: Ref<Array<Recipe>> = ref([])
+const list: Ref<Array<Recipe>> = ref(recipeList)
 
 onMounted(() => {
   selectRecipeAll()

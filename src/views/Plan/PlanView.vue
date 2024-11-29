@@ -42,6 +42,7 @@
 
 <script setup lang="ts">
 import { selectRecipeAll } from '@/apis/recipe.api';
+import { recipeList } from '@/assets/recipe.mock';
 import HeaderBar from '@/components/Layouts/HeaderBar.vue';
 import RecipeFilter from '@/components/Recipe/RecipeFilter.vue';
 import { Day, Meal, days, meals } from '@/interfaces/plan.interface';
@@ -72,7 +73,7 @@ const handleRecipeClick = (dishId: number) => {
   showDrawer.value = false;
 }
 
-const list: Ref<Array<Recipe>> = ref([])
+const list: Ref<Array<Recipe>> = ref(recipeList)
 
 onMounted(() => {
   selectRecipeAll()
