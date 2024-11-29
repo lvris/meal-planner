@@ -25,3 +25,12 @@ export const days = [
   'Sunday'
 ] as Day[]
 export const meals = ['Breakfast', 'Lunch', 'Dinner', 'Snack'] as Meal[]
+
+export interface Plan {
+  id: number
+  planId: number
+  recipeId: number
+  day: Day[]
+  type: Meal[]
+  portion: number
+}

@@ -65,7 +65,7 @@ const sideMenuOptions: MenuOption[] = [
     key: 'home',
     label: () => h(RouterLink, {
       to: "/",
-    }, [
+    }, () => [
       h('div', { class: "i-solar-home-smile-angle-linear" }),
       'Dashboard'
     ])
@@ -74,7 +74,7 @@ const sideMenuOptions: MenuOption[] = [
     key: 'plan',
     label: () => h(RouterLink, {
       to: "/plan",
-    }, [
+    }, () => [
       h('div', { class: "i-solar-notebook-linear" }),
       'Plan'
     ])
@@ -83,7 +83,7 @@ const sideMenuOptions: MenuOption[] = [
     key: 'recipe',
     label: () => h(RouterLink, {
       to: "/recipe",
-    }, [
+    }, () => [
       h('div', { class: "i-solar-chef-hat-linear" }),
       'Recipe'
     ])
@@ -96,7 +96,7 @@ const sideMenuOptions: MenuOption[] = [
     key: 'grocery',
     label: () => h(RouterLink, {
       to: "/grocery",
-    }, [
+    }, () => [
       h('div', { class: "i-solar-shop-2-linear" }),
       'Grocery'
     ])
@@ -105,7 +105,7 @@ const sideMenuOptions: MenuOption[] = [
     key: 'statistic',
     label: () => h(RouterLink, {
       to: "/statistic",
-    }, [
+    }, () => [
       h('div', { class: "i-solar-calculator-linear" }),
       'Statistic'
     ])
@@ -114,7 +114,7 @@ const sideMenuOptions: MenuOption[] = [
     key: 'doc',
     label: () => h(RouterLink, {
       to: "/doc",
-    }, [
+    }, () => [
       h('div', { class: "i-solar-document-text-linear" }),
       'Documents'
     ])
@@ -123,7 +123,7 @@ const sideMenuOptions: MenuOption[] = [
     key: 'settings',
     label: () => h(RouterLink, {
       to: "/settings",
-    }, [
+    }, () => [
       h('div', { class: "i-solar-settings-linear" }),
       'Settings'
     ])

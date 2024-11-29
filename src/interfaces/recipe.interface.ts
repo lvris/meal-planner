@@ -27,6 +27,24 @@ export interface Recipe {
   tags?: string[]
 }
 
+export interface IRecipe {
+  id: number
+  name: string
+  ingredients: Array<{
+    name: string
+    amount: number
+  }>
+  imgUrl?: string
+  userId?: number
+  adminId?: number
+  description?: string
+  steps: Array<{
+    no: number
+    step: string
+  }>
+  tags?: string[]
+}
+
 export interface RecipeListResponse {
   total: number
   list: Recipe[]

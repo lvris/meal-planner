@@ -1,5 +1,9 @@
 <template>
-  <HeaderBar title="Recipe"></HeaderBar>
+  <HeaderBar title="Recipe">
+    <NButton type="primary" @click="$router.push('/create')" class="px-3 my-auto">
+      Create
+    </NButton>
+  </HeaderBar>
   <NFlex gap="3" class="m-6">
     <NCard v-for="recipe in list" :key="recipe.id" :recipe="recipe" hoverable>
       <template #header>
