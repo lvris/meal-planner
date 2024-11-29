@@ -1,47 +1,21 @@
 <template>
-  <div>
-    <h3>筛选 Recipe</h3>
-    <div>
-      <label for="tag">按照 Tag: </label>
-      <input type="text" id="tag" v-model="filters.tag" @input="applyFilters" />
-    </div>
-    <div>
-      <label for="ingredient">按照食材: </label>
-      <input type="text" id="ingredient" v-model="filters.ingredient" @input="applyFilters" />
+  <div flex="~ col" gap-3>
+    <NInput v-model:value="filterStore.query" placeholder="Search">
+      <template #prefix>
+        <div class="font-size-6 mr-3 i-solar-card-search-linear" />
+      </template>
+    </NInput>
+    <div flex="~ row" justify-between px-2>
+      <NButton text>
+        <div class="i-solar-heart-linear font-size-6" />
+      </NButton>
+      <NDynamicTags v-model:value="filterStore.tags" />
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'RecipeFilter',
-  props: {
-    filter: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-  data() {
-    return {
-      filters: {
-        tag: '',
-        ingredient: ''
-      }
-    };
-  },
-  watch: {
-    filter: {
-      handler(newVal) {
-        this.filters = newVal;
-      },
-      immediate: true,
-      deep: true
-    }
-  },
-  methods: {
-    applyFilters() {
-      this.$emit('update:filter', this.filters);
-    }
-  }
-};
+<script setup lang="ts">
+import { useFilterStore } from '@/stores/filterStore';
+
+const filterStore = useFilterStore()
 </script>

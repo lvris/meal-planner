@@ -4,26 +4,39 @@
       Create
     </NButton>
   </HeaderBar>
-  <NFlex gap="3" class="m-6">
-    <NCard v-for="recipe in list" :key="recipe.id" :recipe="recipe" hoverable>
-      <template #header>
-        {{ recipe.name }}
-      </template>
-      <template #header-extra>
-        <RecipeTags :tags="recipe.tags" />
-      </template>
-      <template #footer>
-        <RecipeButtons :id="recipe.id" show-link flex="~ row" gap-3 justify-end />
-      </template>
-      {{ recipe.description }}
-    </NCard>
-  </NFlex>
+  <RecipeFilter px-6 />
+
+  <NDivider />
+
+  <div px-4 pb-4>
+    <NInfiniteScroll :distance="10" @load="handleLoad">
+      <div flex="~ col" gap-4>
+        <NCard v-for="recipe in list" :key="recipe.id" :recipe="recipe" hoverable>
+          <template #header>
+            {{ recipe.name }}
+          </template>
+          <template #header-extra>
+            <RecipeTags :tags="recipe.tags" />
+          </template>
+          <template #footer>
+            <RecipeButtons :id="recipe.id" show-link flex="~ row" gap-3 justify-end />
+          </template>
+          {{ recipe.description }}
+        </NCard>
+      </div>
+    </NInfiniteScroll>
+  </div>
 </template>
 
 <script setup lang="ts">
 import RecipeButtons from '@/components/Recipe/RecipeButtons.vue';
+import RecipeFilter from '@/components/Recipe/RecipeFilter.vue';
 import RecipeTags from '@/components/Recipe/RecipeTags.vue';
-import type { Recipe } from '@/interfaces/recipe.interface';
+import type { Recipe, RecipeQuery } from '@/interfaces/recipe.interface';
+import { useFilterStore } from '@/stores/filterStore';
+import { handleError, reactive, ref } from 'vue';
+
+const filterStore = useFilterStore();
 
 const list: Recipe[] = [
   {
@@ -106,4 +119,8 @@ const list: Recipe[] = [
     ]
   }
 ]
+
+function handleLoad() {
+
+}
 </script>

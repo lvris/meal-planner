@@ -28,7 +28,9 @@
 
   <NDrawer v-model:show="showDrawer" :height="700" placement="bottom" :auto-focus="false">
     <NDrawerContent>
-      <template #header>Choose a Dish</template>
+      <template #header>
+        <RecipeFilter />
+      </template>
       <div class="dish-list">
         <div v-for="dish in dishes" :key="dish.id" class="dish-item" @click="handleDishClick(dish.id)">
           {{ dish.name }}
@@ -40,6 +42,7 @@
 
 <script setup lang="ts">
 import HeaderBar from '@/components/Layouts/HeaderBar.vue';
+import RecipeFilter from '@/components/Recipe/RecipeFilter.vue';
 import { Day, Meal, days, meals } from '@/interfaces/plan.interface';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';

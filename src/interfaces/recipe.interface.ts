@@ -65,3 +65,11 @@ export interface RecipeListResponse {
   navigateFirstPage: number
   navigateLastPage: number
 }
+
+export interface RecipeQuery {
+  query: string
+  ingredients?: string[]
+  tags?: string[]
+}
+
+export interface ISearchRecipe {}
